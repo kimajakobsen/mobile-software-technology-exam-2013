@@ -1,12 +1,18 @@
-\section{Introduction}
+\subsection{log (working title)}
 
-\IEEEPARstart{T}{his} demo file is intended to serve as a ``starter file''
-for IEEE Computer Society journal papers produced under \LaTeX\ using
-IEEEtran.cls version 1.7 and later.
-% You must have at least 2 lines in the paragraph with the drop letter
-% (should never be an issue)
-I wish you the best of success.
+When a reader detects a moving object it records a log. 
+A reading is of the following format \textless $readerID,objectID,timestamp$ \textgreater.
+The \textit{readerID} is the identity of the reader, \textit{objectID} is the identity of the object which is in the range of the reader, and the \textit{timestamp} is the time where the reader detected the object.
+This recording is done at a given sampling rate. 
+The same object might be recorded several times by the same reader in a row. 
+A reader creates a log for each object that is in the vicinity of the reader thus there can be several logs with the \textit{timestamp}.
 
-\hfill mds
+From this raw log data two different outputs are created.
+All data from the readers are continuously streamed to a database that is responsible for maintaining the data.
+If a object enters the range of a reader an output is generated, this have the form \textless $readerID,objectID,timestamp,flag$ \textgreater, where \textit{flag} is "`START"'. 
+When the object is no longer detected by the reader an output with the previous \textit{timestamp} and the \textit{flag} set to "`END"' it outputted.
+The second output is generated based on the first output. 
+It have the format \textless\textit{$readerID,objectID,timestamp_{first}$,$timestamp_{last}$}\textgreater .
+
+
  
-\hfill January 11, 2007
