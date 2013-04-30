@@ -1,29 +1,25 @@
-\subsection{log (working title)}
-
-When a reader detects a moving object it records a log. 
+\subsection{Logging of Sensor Data}
+When a reader detects a object it records a log. 
 A reading is of the following format \textless $readerID,objectID,timestamp$ \textgreater.
 The \textit{readerID} is the identity of the reader, \textit{objectID} is the identity of the object which is in the range of the reader, and the \textit{timestamp} t is the time where the reader detected the object.
 This recording is done at a given sampling rate. 
 The same object might be recorded several times by the same reader in a row. 
-A reader creates a log for each object that is in the vicinity of the reader thus there can be several logs with the same \textit{timestamp}.
+A reader creates a log for each object that is in the vicinity of the reader thus there can be several logs with the same timestamp.
 
-From this log data two different formats of outputs are created.
+From this log data on-line and off-line outputs are generated.
 All data from the readers are continuously streamed to a database that is responsible for maintaining the data.
-If a object enters or leave the range of a reader an output is generated, this have the form
-\begin{figure}[H]
-\[ \textless readerID,objectID,t,flag \textgreater \]
-\caption{On-line Output}
-\end{figure}
-
-where \textit{flag} is "`START"' or "`END"' respectivly. 
-%When the object is no longer detected by the reader an output is generated. 
-Note that when a object in no longer detected by the reader  the \textit{flag} is set to "`END"' the timestamp It contains the last \textit{t} where the object was within the vecinity and .
-A second output is generated when  based on the first output. 
-It have the format 
+If a object enters or leave the range of a reader an on-line output is generated, this have the form
 \begin{align}
-%\textbf{Off-line output:}\\
-\textless\textit{$readerID,objectID,t_{first},t_{last}$}\textgreater
+\textless readerID,objectID,t,flag \textgreater 
 \end{align}
 
+where \textit{flag} is "`START"' or "`END"' respectively. 
+%When the object is no longer detected by the reader an output is generated. 
+Note that when a object in no longer detected by the reader  the \textit{flag} is set to "`END"' and the timestamp is the last \textit{t} where the object was within the vicinity.
+A second output is generated when it have the form 
+\begin{align}
+\textless\textit{$readerID,objectID,t_{first},t_{last}$}\textgreater
+\end{align}
+These two outputs are later used in online and offline tracking which we cover in Section~\ref{}.
 
  
