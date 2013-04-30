@@ -7,17 +7,18 @@ This recording is done at a given sampling rate.
 The same object might be recorded several times by the same reader in a row. 
 A reader creates a log for each object that is in the vicinity of the reader thus there can be several logs with the same \textit{timestamp}.
 
-From this log data two different outputs are created.
+From this log data two different formats of outputs are created.
 All data from the readers are continuously streamed to a database that is responsible for maintaining the data.
-If a object enters the range of a reader an output is generated, this have the form
-\begin{equation}
-\textbf{On-line output:}
- \textless readerID,objectID,t,flag \textgreater
-\end{equation} 
-where \textit{flag} is "`START"'. 
-When the object is no longer detected by the reader an output is generated. 
-It contains the last \textit{t} where the object was within the vecinity and the \textit{flag} set to "`END"'.
-A second output is generated based on the first output. 
+If a object enters or leave the range of a reader an output is generated, this have the form
+\begin{figure}[H]
+\[ \textless readerID,objectID,t,flag \textgreater \]
+\caption{On-line Output}
+\end{figure}
+
+where \textit{flag} is "`START"' or "`END"' respectivly. 
+%When the object is no longer detected by the reader an output is generated. 
+Note that when a object in no longer detected by the reader  the \textit{flag} is set to "`END"' the timestamp It contains the last \textit{t} where the object was within the vecinity and .
+A second output is generated when  based on the first output. 
 It have the format 
 \begin{align}
 %\textbf{Off-line output:}\\
