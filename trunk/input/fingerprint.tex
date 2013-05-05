@@ -1,23 +1,45 @@
 
 \section{Wi-Fi based location service}
-Wi-Fi is a widespread technology and is deployed at most offices, homes,and pulic buildings.
-It is often used in indoor positioning systems \cite{mlws,5388848,radarlf,Bell2010,6068444} as no extra infrastructure requirements are needed. 
+Wi-Fi is a widespread technology and is deployed at most offices, homes, and public buildings.
+It is used in indoor positioning systems \cite{mlws,5388848,radarlf,Bell2010,6068444} and provides a low installtion cost as no extra infrastructure requirements are needed. 
 If Wi-Fi signals propagated trough space, such that distance to the emitter and the receiver is correlated, utilizing Wi-Fi to determine a devices position would be trivial~\cite{ariadne2006}. 
-It could be solved by having a minimum of three emitters with known positions. 
-Finding the devices position would be a matter of solving a quadratic equation with two unknowns.   
-Unfortunately Wi-Fi signals are greatly affected by building interior, people moving trough the space, and other factors making it nontrivial to use for location based services. 
+It could be solved by having a minimum of three Wi-Fi radios with known positions. 
+Finding the devices position would be a matter of solving a quadratic equation with two unknowns.  
+Unfortunately Wi-Fi signals are greatly affected by building interior, people moving trough the space, humidity, and other factors making it nontrivial to use for location based services~\cite{6068444}. 
 
-A class of techniques which can utilize Wi-Fi is \textit{location fingerprinting}~\cite{taxonomy2006}. 
-The techniques are divided into two phases. 
-An initial phases, called the offline phase, in which a \textit{radio map} is created and a second phase where the radio map is used to estimate the device's location. 
+A class of techniques which can utilizes Wi-Fi is the \textit{location fingerprinting}(LF) techniques~\cite{taxonomy2007}. 
+An LF technique is divided into two phases. 
+An initial phases, called the offline phase, in which a \textit{radio map} or is created and a second phase where the radio map is used to estimate the device's location.
+The two phases are elaborated in the following two sections. 
 
 \subsection{Generating a Radio Map}
-A radio map can be created using either an empirical or a model-based approach~\cite{taxonomy2008}. 
-A model-based approach use parameterized model for LF based on the building layout and a theoretical propagation model~\cite{radarlf}.   
-Empirical models can be subdivided into probabilistic and deterministic models.  
+A radio map can be created using either an empirical or a model-based approach~\cite{taxonomy2007}. 
+A model-based approach uses parameterized model for LF based on the building layout and a theoretical propagation model~\cite{radarlf}.   
+Empirical methods can be subdivided into probabilistic and deterministic models.  
 Both use measured data, known as fingerprints, often collected by researchers wandering around the area to be mapped with a laptop performing measurements~\cite{roblocal2004,5388848, radarlf}.  
 Deterministic models treat the measured fingerprints as single values while probabilistic methods represent data as probability models. 
 Both empirical methods can be divided into interpolating and aggregating methods. 
-Aggregating methods combine measured values into mean values in the radio map~\cite{radarlf, roblocal2004}, while interpolating creates new data points by interpolating existing data points~\cite{locadio2004}. 
+Aggregating methods combine measured values into mean values in the radio map~\cite{radarlf, roblocal2004}, while interpolating methods creates new data points by interpolating existing data points~\cite{locadio2004}. 
+Deterministic models utilize direct-methods where fingerprint data are used without any further processing or with outliers removed, as in~\cite{1200692}. 
 
 \subsection{Estimating Positions}
+Methods for estimating the position of the tracked device are, as empirical methods for radio map generation, divided into the two subcategories: deterministic and probabilistic~\cite{taxonomy2007}.
+There are several deterministic methods, but most is variations to NN or KNN algorithms as
+the nearest neighbor in signal space method (NNSS)
+described in~\cite{6068444} and \cite{radarlf}.
+Assume that there are $n$ Wi-Fi points in the indoor space of interest and $m$ of those are pre-selected as reference points. 
+A signal measure or fingerprint is then an $n$-dimensional vector $s=(s_{1},\dots,s_{n})$ and $s_{i} (1 \le  i \le n)$ denotes the signal strength from the $i$-th Wi-Fi radio. 
+The distance is calcualted as euclidian distance the current signal measure (query) $q$ and each measured fingerprint $s^{j} (1 \le j \le m)$, 
+that is $dist(q,s^{j}) = \sqrt{\sum_{i=1}^{n}\left(q_{i}-s^{j}_{i}\right)}$ 
+Given a radio map and a user signal strength measure, the location can be found by searching the radio map. 
+If there is an exact match the user is at this location otherwise NN query can be used.
+As described in~\cite{ariadne2006} using KNN is preferred to single NN as the query point is often close too two or more radio map entries.
+Probabilistic methods include hidden markov chains and center of mass~\cite{Youssef2005}.
+
+
+
+
+
+
+
+
