@@ -10,6 +10,7 @@ From this log data on-line and off-line outputs are generated~\cite{Jensen:2009:
 All data from the readers are continuously streamed to a database that is responsible for maintaining the data.
 If a object enters or leave the range of a reader an on-line output is generated, this have the form
 \begin{align}
+\label{log:online}
 <readerID,objectID,t,flag >
 \end{align}
 
@@ -17,7 +18,8 @@ where \textit{flag} is "`START"' or "`END"' respectively.
 %When the object is no longer detected by the reader an output is generated. 
 Note that when a object in no longer detected by the reader  the \textit{flag} is set to "`END"' and the timestamp is the last \textit{t} where the object was within the vicinity.
 A second output is generated when it have the form 
-\begin{align}
+\begin{align},
+\label{log:offline}
 <\textit{$readerID,objectID,t_{first},t_{last}$}>
 \end{align}
 These two outputs are later used in online and offline tracking which we cover in Section~\ref{sub:online} and Section~\ref{sub:offline}.

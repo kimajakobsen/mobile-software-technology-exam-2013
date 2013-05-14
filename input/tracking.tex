@@ -1,5 +1,15 @@
 \subsection{Offline Tracking}
 \label{sub:offline}
+With the information from the above subsections we are now able to produce a trajectory of a given object.
+An offline trajectory contain data of where the object have already moved and is displayed in the following form:
+\begin{align}
+<readerID,objectID,tagID,t_{start},t_{end}>
+\end{align}
+First the output from output \ref{log:offline} is combined with the deployment graph.
+We extract all entries with the fitting objectID, each entry is mapped to the deplayment graph.
+Now we have a log with     
+
+
 \subsection{Online Tracking}
 \label{sub:online}
 
