@@ -80,6 +80,40 @@ where $V$ is the set of vertices, $E$ is the set of directed edges, having $E = 
 
 These graphs provide an abstract representation of the floor plan, which -- combined with the previously mentioned logging -- will allow for indoor movement tracking and indoor positioning. 
 
+\subsubsection{ \quad Deployment Graph}
+While the accessibility graph is based on the connectivity graph, the deployment graph is based on the accessibility graph. 
+When it is known in what direction people can travel, it is possible to make deployment plan for the sensors to read movement patterns. 
+
+This scenario is based on RFID technology that uses proximity analysis for determining when a tag is approaching a reader. 
+All readers are embedded into door-openings. 
+All RFID readers that are deployed have disjoint activations ranges, meaning that a tag cannot be read by more than one reader at the time. \\
+
+The actual deployment varies from case to case. 
+There are two kind of readers. Partitioning readers and Presence readers. \\
+
+The partitioning readers partition the indoor space into different cells. 
+An object cannot move from one cell to another without being read by a sensor. 
+When deploying partitioning readers, one can choose between placing one or two readers in every door opening. 
+By placing one reader only, it is not possible to track which way the object is moving - only that is has been recorded passing the reader in question. 
+In order to find out in which way the object was moving, the history of other reads of the same object has to be taken into account. 
+By placing two readers in every door opening, it is possible to detect in which direction the object is moving (e.g. if it is moving in or out of the cell). \\
+
+Presence readers are readers that do not contribute to the partitioning of the indoor space. 
+They simply observe which objects are present within its range. 
+These recordings will also have an entry- and an exit time of when the any given object enters or exists the readers range. \\
+
+A deployment graph should be complete, meaning that it should capture all present cells and connections between them, and it should have as few vertices and edges as possible. \\
+
+An RFID deployment graph is represented as a directed, labeled graph:
+
+\begin{equation}
+G_{RFID} = (C, E_r, \Sigma_{reader}, l_e)
+\end{equation} 
+
+where $C$ is the set of vertices, $E_r$ is the set of edges (an edge is an ordered pair $\langle c_i, c_j \rangle$ of distinct vertices from $C$) and $l_e : E_r \rightarrow 2^{\Sigma_{reader}} \cup 2^{\Sigma_{reader} X \Sigma_{reader}}$ maps an edge to a partitioning reader or a partitioning reader pair. \\
+
+The deployment graph forms the basis of how the readers should be installed into the indoor area. 
+
 %\IEEEPARstart{T}{his} demo file is intended to serve as a ``starter file''
 %for IEEE Computer Society journal papers produced under \LaTeX\ using
 %IEEEtran.cls version 1.7 and later.
