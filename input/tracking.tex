@@ -5,9 +5,41 @@ An offline trajectory contain data of where the object have already moved and is
 \begin{align}
 <readerID,objectID,tagID,t_{start},t_{end}>
 \end{align}
-First the output from output \ref{log:offline} is combined with the deployment graph.
-We extract all entries with the fitting objectID, each entry is mapped to the deplayment graph.
-Now we have a log with     
+To transform the data into this form we perform a three step refinement.
+First the result of Output \ref{log:offline} is combined with the deployment graph.
+We extract all entries with the matching objectID, each entry is mapped to the deployment graph.
+The result of this is a table where edges and cells from the deployment graphs is shown, see Figure \ref{fig:ref1}.  
+Next we revers the data such that we have the time intervals where object are not in sensor range.
+In Figure \ref{fig:ref2} the three sensor reading are converted into two intervals where we know which cell the object is located in.
+Last we further limit the area of which the object is located in. 
+We use the knowledge obtained in Section \ref{sec:speed} to limit the area based on max speed.
+ 
+
+\begin{tabular}{ l | c | r | }
+\hline
+   objectID & Interval & Location\\ 
+\hline
+Object1 & [$t_1,t_2$] & c9 \\ 
+\hline
+Object1 & [$t_6,t_10$] &  $e<9,3>$\\ 
+\hline
+Object1 & [$t_21,t_30$] &  $e<3,9>$\\ 
+\hline
+\caption{Example of refinement steps one. First row is a reading done by non-directional sensor, the second and third row is a reading from a directional sensor.}
+\label{fig:ref1}
+\end{tabular}
+
+\begin{tabular}{ l | c | r | }
+\hline
+   objectID & Interval & Location\\ 
+\hline
+Object1 & [$t_3,t_5$] & c9 \\ 
+\hline
+Object1 & [$t_11,t_20$] &  c3\\ 
+\hline
+\caption{Example of refinement steps two.}
+\end{tabular}
+   
 
 
 \subsection{Online Tracking}
