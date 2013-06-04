@@ -33,8 +33,8 @@ The result of the refinement can be seen in Figure \ref{fig:ref3}.
 		$[t_{21},t_{30}]$ &  $ e\langle3,9\rangle $\\ 
 		\bottomrule
 		\end{tabular}
-  \caption{test figure two}
-  \label{fig:test2} \par\vfill
+  \caption{The data after refinement step 1.}
+  \label{fig:ref1} \par\vfill
 	
 	
 		\begin{tabular}{  l  l  }
@@ -46,8 +46,8 @@ The result of the refinement can be seen in Figure \ref{fig:ref3}.
 		$[t_{11},t_{20}]$ &  c3\\ 
 		\bottomrule
 		\end{tabular}
-  \caption{test figure three}
-  \label{fig:test3}
+  \caption{The data after refinement step 2.}
+  \label{fig:ref2}
 	
 		\begin{tabular}{  l  l  }
 		\toprule
@@ -59,19 +59,18 @@ The result of the refinement can be seen in Figure \ref{fig:ref3}.
 		\hline
 		\end{tabular}
 			
-	\caption{test figure three}
-  \label{fig:test3}
+	\caption{The data after refinement step 3.}
+  \label{fig:ref3}
 
 \end{minipage}
 \end{figure}
-
-
-   
 
 
 \subsection{Online Tracking}
 \label{sub:online}
 The purpose of online tracking is getting a precise estimate of where the object currently located.
 When tracking an object only its most recent log is used, recall Output \ref{log:online} which shows the format of this.
-in activation range
-outside range, use max speed
+When $flag=START$ we know that the object is within the range of the sensor.
+When $flag=END$ we calculate the max speed to create a bounding area in which the object is located. Remember that this expanding circle area is bounded by the size of the cell. 
+This is because a new log reading is created if the object enters a the range of a new sensor.
+
