@@ -1,14 +1,18 @@
 %!TEX root = ../bare_adv.tex
-\subsection{Introduction}
+%\subsection{Introduction}
 When talking about indoor positioning, a Graph-based Model~\cite{Jensen:2009:GMB:1590953.1591000} describes the topology of e.g. a floor plan of the indoor area. 
 This area may be a complex area with several rooms, levels, doors, hallways etc. 
 The Graph-based Model therefore represents the connectivity and accessibility of the area, representing each room as a vertex and each connection as an edge. 
 
 By representing the area using a Graph-based Model, it is possible to apply indoor tracking of the people that are inside the area, using various wireless technologies (like bluetooth, Wi-Fi, RFID etc.) by logging the movement of the people or objects we want to track.
 
+When using a low-proximity technology, the data that is recorded by the sensors, regardless of the technique that is used for this, is saved in a database for later usage and analysis. 
+This allows for both Online and Offline tracking.
+Online being live analysis of the currently available data to see the live status of the sensors, and Offline being later analysis of the recorded data, if you e.g. want to track the movement pattern of one or more specific persons. 
+
 %A Graph-based Model can be applied, as it does not differ between the actual floor plan and the abstract model, hence why using an abstract model provides a equally correct positioning data. 
 
-\subsection{Explained}
+\subsection{Connectivity \& Accessibility Graphs}
 There are two kinds of Graph-based Models that describes the the topology of a floor plan. 
 The first is the Connectivity Graph which describes how rooms, hallways, stairs etc. are connected to each other. 
 The second is the Accessibility Graph which takes the actual accessibility of a cell into account. 
