@@ -2,18 +2,18 @@
 \label{sub:offline}
 With the information from the above subsections we are now able to produce a trajectory of a given object.
 An offline trajectory contains data of where the object have already moved.
-To transform the data into this form we perform a three step refinement.
+To transform the data into a trajectory which we can make tracking quires we perform a three step refinement.
 
-First the result of the outputs of type (\ref{log:offline}) is combined with the deployment graph.
-We extract all entries with the matching $objectID$, each entry is mapped to the deployment graph.
-The result of this is a table where edges and cells from the deployment graphs is shown, see Figure~\ref{fig:ref1}.  
+First the result with outputs type (\ref{log:offline}) is combined with the deployment graph.
+We do this by extract all entries with the matching $objectID$, each entry is mapped to the deployment graph.
+The result of this is a table where edges and cells from the Deployment Graphs is shown, see Figure~\ref{fig:ref1}.  
 
-Next we revert the data such that we have the time intervals where object are not in sensor range.
+Next we revert the data such that we have the time intervals where object are not in sensor range also know as the vacant time interval.
 In Figure \ref{fig:ref2} the three sensor reading are converted into two intervals where we know which cell the object is located in.
 
 Lastly, we further limit the area of which the object is located in. 
 We use the knowledge obtained in Section \ref{sec:speed} to limit the area based on two sensor points and the max speed of the object.
-We can now find the intersection between the cell and $A_{speed}$, see Figure \ref{fig:speed1}.
+we know the object can only be in the intersection between the $A_{cell}$ and $A_{speed}$, see Figure \ref{fig:speed1}.
 The result of the refinement can be seen in Figure \ref{fig:ref3}.
  
 
@@ -69,9 +69,8 @@ The result of the refinement can be seen in Figure \ref{fig:ref3}.
 
 \subsection{Online Tracking}
 \label{sub:online}
-The purpose of online tracking is getting a precise estimate of where the object currently located.
+The purpose of online tracking is getting a precise estimate of where the object is currently located.
 When tracking an object only its most recent log is used, recall the output (\ref{log:online}) which shows the format of this.
 When $flag=START$ we know that the object is within the range of the sensor.
-When $flag=END$ we calculate the max speed to create a bounding area in which the object is located. Remember that this expanding circle area is bounded by the size of the cell. 
-This is because a new log reading is created if the object enters the range of a new sensor.
-
+When $flag=END$ we calculate the intersection of $A_{cell}$ and $A_{speed}$. 
+Remember that $A_{speed}$ is a function of time.  
