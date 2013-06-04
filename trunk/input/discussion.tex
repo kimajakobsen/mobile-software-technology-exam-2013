@@ -1,25 +1,31 @@
 %!TEX root =  ../bare_adv.tex
 \section{Discussion}
-In this paper we have explored the world of indoor tracking, by looking into the main concepts and technologies of indoor positioning. 
+In this paper we have explored indoor tracking technologies by looking into the main concepts and technologies of indoor positioning. 
 We have looked at graph based techniques which utilizes low proximity technologies such as: NFC, RFID, and Bluetooth. 
 In this context we regard bluetooth as a low proximity technology, as it is used in this way in the described techniques. 
-Beside the low proximity techniques we have looked into Wi-Fi based technologies and we explored some hybrid techniques where low proximity technologies are intertwined with Wi-Fi. 
+Beside the low proximity techniques we have looked into Wi-Fi based technologies and we explored some hybrid techniques where low proximity technologies are intertwined with Wi-Fi. \\
 
-The techniques looks promising, but all have advantages and drawbacks. 
-The graph-based techniques have relative high precision, as the tags can be positioned such that they report the position where it is needed, but it requires relative high new infrastructure. 
+We believe that the techniques looks promising, but all have their advantages and drawbacks. 
+The graph-based techniques have relative high precision, as the tags can be positioned such that they report the position where it is needed, but it requires a complex and new infrastructure implemented into the area where it is to be used. \\
 
-Purely Wi-Fi based fingerprinting techniques can in most cases use existing infrastructure, but suffer from low precision.
-Though system are being developed which reduces the accuracy~\cite{Youssef2005}, but has other drawbacks e.g. it requires a specialized WLAN-driver in the user device. 
+Purely Wi-Fi based fingerprinting techniques can in most cases use existing infrastructure, as many buildings today  have Wi-Fi installed, but suffer from low precision.
+Though system are being developed which reduces the accuracy~\cite{Youssef2005}, but has other drawbacks e.g. it requires a specialized WLAN-driver in the user device. \\
 
 Hybrid systems are able to utilize the best of each category, but they still have drawbacks. 
 As they can utilize the Wi-Fi new infrastructure is only needed for the low proximity devices, but this reduced compared to purely low proximity techniques. 
-Hybrid system improves the overall accuracy compared to Wi-Fi. 
+Hybrid system improves the overall accuracy compared to Wi-Fi. \\
 
 Most of the techniques we have discovered have relative little computational requirements. 
 Fingerprinting often relies on searching through a fingerprinting map. 
 The computation can be moved to either the device or a server, but the server is the most obvious choice as it already contains the fingerprinting map. 
-Using hybrid techniques reduces the search space of fingerprinting and thereby the required computation.
-The low proximity techniques have low computational power as it only requires a lookup in a hashmap,  or similar, to get the position of the device which the user has passed. 
-If it is combined with the Max Speed limitation the computation is slightly larger as we most compute the position based on a velocity vector. 
+Using hybrid techniques reduces the search space of fingerprinting and thereby the required computation. \\
+
+The low proximity techniques have low computational power as it only requires a lookup in a hashmap, or similar, to get the position of the device that the user has passed. 
+If it is combined with the Max Speed limitation, the computation is slightly larger as we must compute the position based on a velocity vector. 
 The computation is likely to be placed on the server. 
-If it relies on dumb tags, the device must report which tag it has seen to the server in order to get its posistion.
+If it relies on dumb tags, the device must report which tag it has seen to the server in order to get its position. \\
+
+Based on the available technologies of today and not least the currently available infrastructure, we do not believe that one method of indoor tracking is superior to the others.
+We believe that model-based is the best method to get the most accurate data, but the infrastructure that is required to use this method does not exists and is a huge task to implement, as it requires a lot of sensors to be installed. 
+Fingerprinting is easier to implement as the infrastructure using Wi-Fi signals exists, but research also shows this is more inaccurate and requires more computational power to use. 
+We therefore believe that none of these are a general right choice, but the individual use case determines which applies the best. 
