@@ -13,6 +13,7 @@ In Figure \ref{fig:ref2} the three sensor reading are converted into two interva
 
 Lastly, we further limit the area of which the object is located in. 
 We use the knowledge obtained in Section \ref{sec:speed} to limit the area based on two sensor points and the max speed of the object.
+We can now find the intersection between the cell and $A_{speed}$, see Figure \ref{fig:speed1}.
 The result of the refinement can be seen in Figure \ref{fig:ref3}.
  
 
@@ -33,7 +34,7 @@ The result of the refinement can be seen in Figure \ref{fig:ref3}.
 		$[t_{21},t_{30}]$ &  $ e\langle3,9\rangle $\\ 
 		\bottomrule
 		\end{tabular}
-  \caption{The data after refinement step 1.}
+  \caption{The data after refinement step 1, where c is a cell and e is a edge both known form the deployment graph.}
   \label{fig:ref1} \par\vfill
 	
 	
@@ -59,7 +60,7 @@ The result of the refinement can be seen in Figure \ref{fig:ref3}.
 		\hline
 		\end{tabular}
 			
-	\caption{The data after refinement step 3.}
+	\caption{The data after refinement step 3. }
   \label{fig:ref3}
 
 \end{minipage}
