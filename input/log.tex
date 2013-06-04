@@ -1,27 +1,30 @@
+%!TEX root = ../bare_adv.tex
 \subsection{Logging of Sensor Data}
-When a reader detects a object it records a log. 
-A reading is of the following format \textless $readerID,objectID,timestamp$ \textgreater.
-The \textit{readerID} is the identity of the reader, \textit{objectID} is the identity of the object which is in the range of the reader, and the \textit{timestamp} t is the time where the reader detected the object.
+When a reader detects an object it records it in a log. 
+A reading is of the following format $\langle readerID,objectID,t\rangle$.
+The \textit{readerID} is the identity of the reader, \textit{objectID} is the identity of the object which is in the range of the reader, and $t$
+is the timestamp where the reader detected the object.
 This recording is done at a given sampling rate. 
 The same object might be recorded several times by the same reader in a row. 
-A reader creates a log for each object that is in the vicinity of the reader thus there can be several logs with the same timestamp.
+A reader creates a log entry for each object that is in the vicinity of the reader thus there can be several log entries with the same timestamp.
 
 From this log data on-line and off-line outputs are generated~\cite{Jensen:2009:GMB:1590953.1591000}.
 All data from the readers are continuously streamed to a database that is responsible for maintaining the data.
-If a object enters or leave the range of a reader an on-line output is generated, this have the form
+If an object enters or leaves the range of a reader an on-line output is generated, this have the form
 \begin{align}
 \label{log:online}
-<readerID,objectID,t,flag >
+\langle readerID,objectID,t,flag \rangle
 \end{align}
 
-where \textit{flag} is "`START"' or "`END"' respectively. 
+where \textit{flag} is ``START'' or ``END'' respectively. 
 %When the object is no longer detected by the reader an output is generated. 
-Note that when a object in no longer detected by the reader  the \textit{flag} is set to "`END"' and the timestamp is the last \textit{t} where the object was within the vicinity.
-A second output is generated when it have the form 
-\begin{align},
+Note that when an object in no longer in vicinity of the reader  the $flag$ is set to ``END'' and the $t$ is the last timestamp where the object was within vicinity.
+A second output is then generated with the form 
+\begin{align}
 \label{log:offline}
-<\textit{$readerID,objectID,t_{first},t_{last}$}>
+\langle readerID,objectID,t_{first},t_{last} \rangle
 \end{align}
-These two outputs are later used in online and offline tracking which we cover in Section~\ref{sub:online} and Section~\ref{sub:offline}.
+Where $t_{first}$ and $t_{last}$ is the timestamp of the device entry and exit of the readers vicinity.
+The last two outputs ((\ref{log:online}) and (\ref{log:offline})) are later used in online and offline tracking which we cover in Section~\ref{sub:online} and Section~\ref{sub:offline}.
 
  
