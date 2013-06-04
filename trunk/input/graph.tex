@@ -11,7 +11,7 @@ By representing the area using a Graph-based Model, it is possible to apply indo
 \subsection{Explained}
 There are two kinds of Graph-based Models that describes the the topology of a floor plan. 
 The first is the Connectivity Graph which describes how rooms, hallways, stairs etc. are connected to each other. 
-The second is the Accessibility Graph which takes the actual accessibility of a room into account. 
+The second is the Accessibility Graph which takes the actual accessibility of a cell into account. 
 These two will be described in the following sections. 
 
 
@@ -25,10 +25,10 @@ Both the Connectivity graph and the Accessibility Graph are based on a base-grap
 \end{figure}%
 
 Figure \ref{fig:floortplan} shows the floor plan that forms the basis of the examples of the Connectivity graph and the Accessibility graph. 
-It contains 7 rooms, labeled $R1 - R7$, one staircase labeled $S1$, a hallway and 12 doors labeled $d1-d12$. \\
+It contains 7 cells, labeled $R1 - R7$, one staircase labeled $S1$, a hallway and 12 doors labeled $d1-d12$. \\
 
 In the Connectivity graph, each separate partitioning of the floor plan (rooms, staircases, hallways etc.) are represented as vertices, while the connectivity of these (doors, windows, hatches etc.) are represented as the edges.
-E.g. if two rooms are connected by a door, each room will be represented in the base-graph as a vertex, while the door is represented as an undirected edge. 
+E.g. if two rooms are connected by a door, each cell will be represented in the base-graph as a vertex, while the door is represented as an undirected edge. 
 The Connectivity graph representing the floor plan in Figure \ref{fig:floortplan} is shown in Figure \ref{fig:connectivitygraph} below. 
 
 \begin{figure}[H]%
