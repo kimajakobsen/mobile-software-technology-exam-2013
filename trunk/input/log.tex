@@ -2,8 +2,7 @@
 \subsection{Logging of Sensor Data}
 When a reader detects an object it records it in a log. 
 A reading is of the following format $\langle readerID,objectID,t\rangle$.
-The \textit{readerID} is the identity of the reader, \textit{objectID} is the identity of the object which is in the range of the reader, and $t$
-is the timestamp where the reader detected the object.
+The \textit{readerID} is the identity of the reader, \textit{objectID} is the identity of the object which is in the range of the reader, and $t$ is the timestamp where the reader detected the object.
 This recording is done at a given sampling rate. 
 The same object might be recorded several times by the same reader in a row. 
 A reader creates a log entry for each object that is in the vicinity of the reader thus there can be several log entries with the same timestamp.
@@ -15,10 +14,9 @@ If an object enters or leaves the range of a reader an on-line output is generat
 \label{log:online}
 \langle readerID,objectID,t,flag \rangle
 \end{align}
-
 where \textit{flag} is ``START'' or ``END'' respectively. 
 %When the object is no longer detected by the reader an output is generated. 
-Note that when an object in no longer in vicinity of the reader  the $flag$ is set to ``END'' and the $t$ is the last timestamp where the object was within vicinity.
+Note that when an object is no longer in vicinity of the reader the $flag$ of the last entry is set to ``END'' and $t$ is the last timestamp where the object was within vicinity.
 A second output is then generated with the form 
 \begin{align}
 \label{log:offline}

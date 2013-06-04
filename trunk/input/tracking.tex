@@ -1,17 +1,17 @@
 \subsection{Offline Tracking}
 \label{sub:offline}
 With the information from the above subsections we are now able to produce a trajectory of a given object.
-An offline trajectory contain data of where the object have already moved.
+An offline trajectory contains data of where the object have already moved.
 To transform the data into this form we perform a three step refinement.
 
-First the result of Output \ref{log:offline} is combined with the deployment graph.
-We extract all entries with the matching objectID, each entry is mapped to the deployment graph.
-The result of this is a table where edges and cells from the deployment graphs is shown, see Figure \ref{fig:ref1}.  
+First the result of the outputs of type (\ref{log:offline}) is combined with the deployment graph.
+We extract all entries with the matching $objectID$, each entry is mapped to the deployment graph.
+The result of this is a table where edges and cells from the deployment graphs is shown, see Figure~\ref{fig:ref1}.  
 
 Next we revert the data such that we have the time intervals where object are not in sensor range.
 In Figure \ref{fig:ref2} the three sensor reading are converted into two intervals where we know which cell the object is located in.
 
-Last we further limit the area of which the object is located in. 
+Lastly, we further limit the area of which the object is located in. 
 We use the knowledge obtained in Section \ref{sec:speed} to limit the area based on two sensor points and the max speed of the object.
 The result of the refinement can be seen in Figure \ref{fig:ref3}.
  
