@@ -7,7 +7,7 @@ To transform the data into this form we perform a three step refinement.
 First the result of Output \ref{log:offline} is combined with the deployment graph.
 We extract all entries with the matching objectID, each entry is mapped to the deployment graph.
 The result of this is a table where edges and cells from the deployment graphs is shown, see Figure \ref{fig:ref1}.  
-\begin{comment}
+
 Next we revert the data such that we have the time intervals where object are not in sensor range.
 In Figure \ref{fig:ref2} the three sensor reading are converted into two intervals where we know which cell the object is located in.
 
@@ -18,53 +18,60 @@ The result of the refinement can be seen in Figure \ref{fig:ref3}.
 
 
 \begin{figure}
-\begin{minipage}[c][][]{\columnwidth}
+\begin{minipage}[tbh]{\columnwidth}
+
   \vspace*{\fill}
   \centering
-		\begin{tabular}{| l  l  l | }
+		\begin{tabular}{ l  l  }
 		\toprule
 		\textbf{Interval} & \textbf{Location}\\ 
 		\midrule
-		[$t_1,t_2$] & c9 \\ 
+		$[t_1,t_2]$ & $c9$ \\ 
 
-		[$t_6,t_10$] &  $e\langle9,3\rangle$\\ 
+		$[t_6,t_{10}]$ &  $e\langle9,3\rangle$\\ 
 
-		[$t_21,t_30$] &  $e\langle3,9\rangle$\\ 
+		$[t_{21},t_{30}]$ &  $ e\langle3,9\rangle $\\ 
 		\bottomrule
 		\end{tabular}
   \caption{test figure two}
-  \label{fig:test2}\par\vfill
-		\begin{tabular}{ | l  l  l | }
+  \label{fig:test2} \par\vfill
+	
+	
+		\begin{tabular}{  l  l  }
 		\toprule
 		\textbf{Interval} & \textbf{Location}\\ 
 		\midrule
-		[$t_3,t_5$] & c9 \\ 
+		$[t_3,t_5]$ & c9 \\ 
 
-		[$t_11,t_20$] &  c3\\ 
+		$[t_{11},t_{20}]$ &  c3\\ 
 		\bottomrule
 		\end{tabular}
   \caption{test figure three}
   \label{fig:test3}
 	
-		\begin{tabular}{ | l  l  l | }
+		\begin{tabular}{  l  l  }
 		\toprule
 		\textbf{Interval} & \textbf{Location}\\ 
 		\midrule
-		[$t_3,t_5$] & c9 $\cap \Theta(reader_10,reader_8,t_1,t_2)$ \\ 
+		$[t_3,t_5]$ & c9 $\cap \Theta(reader_10,reader_8,t_1,t_2)$ \\ 
 
-		[$t_{11},t_{20}$] &  c3 $\cap \Theta(reader_8,reader_3,t_{10},t_{21})$\\ 
+		$[t_{11},t_{20}]$ &  c3 $\cap \Theta(reader_8,reader_3,t_{10},t_{21})$\\ 
 		\hline
 		\end{tabular}
+			
 	\caption{test figure three}
   \label{fig:test3}
-	
+
 \end{minipage}
 \end{figure}
 
-\end{comment}
+
    
 
 
 \subsection{Online Tracking}
 \label{sub:online}
-
+The purpose of online tracking is getting a precise estimate of where the object currently located.
+When tracking an object only its most recent log is used, recall Output \ref{log:online} which shows the format of this.
+in activation range
+outside range, use max speed
