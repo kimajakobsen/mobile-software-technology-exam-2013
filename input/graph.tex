@@ -23,7 +23,7 @@ The second is the \textit{Accessibility Graph} which takes the actual accessibil
 The third is the \textit{Deployment Graph} which contains the cells and connections (e.g. doorways) that are equipped with scanners.
 
 
-\subsubsection{ \quad Connectivity Graph}
+\subsubsection{ \qquad Connectivity Graph}
 Both the Connectivity graph and the Accessibility Graph are constructed based on the actual floor plan. 
 
 \begin{figure}[]%
@@ -58,7 +58,7 @@ Finally, $\Sigma_{door}$ is a set of edge labels that represent the connections.
 %However, it does not make much sense to look at the Connectivity Graph alone when talking about indoor positioning and tracking. 
 %To be able to track movement, information about the accessibility of each vertex must also be available. 
 
-\subsubsection{ \quad Accessibility Graph}
+\subsubsection{ \qquad Accessibility Graph}
 There may be situations where a connection does not mean that you have access through that connection.
 It can be air-port security or subway ententes that are either entries or exits, which allows one-way movement only.
 To take this into account, the Accessibility Graph is used. 
@@ -80,7 +80,7 @@ where $V$ is the set of vertexes, $E$ is the set of directed edges, having $E = 
 
 %These graphs provide an abstract representation of the floor plan, which -- combined with the previously mentioned logging -- will allow for indoor movement tracking and indoor positioning. 
 
-\subsubsection{ \quad Deployment Graph}
+\subsubsection{ \qquad Deployment Graph}
 While the Accessibility Graph is based on the Connectivity Graph, the Deployment Graph is based on the Accessibility Graph. 
 The Deployment Graph is an Accessibility graph where edges is doors with sensors e.g. if two rooms do not have a sensor at the passage door then the two rooms are view as the same room.
 %When it is known in what direction people can travel, it is possible to make deployment plan for the sensors to read movement patterns. 
