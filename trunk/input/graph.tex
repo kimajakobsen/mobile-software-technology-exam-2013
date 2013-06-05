@@ -3,14 +3,14 @@
 Graph-based Modelling~\cite{Jensen:2009:GMB:1590953.1591000} can be used to track the location of objects. 
 It uses plans of indoor areas as graphs e.g. as a floor plan of the indoor area. 
 This area may be a complex area with several rooms, levels, doors, hallways etc. 
-The connectivity and accessibility of the area are represented in as a graph where each room is a vertex and each connection as an edge. 
+The connectivity and accessibility of the area are represented in a graph where each cell is a vertex and each connection between two cells is an edge. 
 
 By representing areas this way, it is possible to track people in the areas from the floor plan, this is done using various low-proximity technologies as Bluetooth, Wi-Fi, RFID etc.
 
 When using a low-proximity technology, the data that is recorded by the sensors, regardless of the technique that is used for this, is saved in a database for later querying and analysis. 
-This allows for both Online and Offline tracking.
-Online being live querying of the currently available data to see the location of the object, and Offline being a later analysis of the recorded data, if you e.g. want to track the movement pattern of one or more persons. 
-To perform online or offline tracking need to three elements: A Deployment Graph, processed sensor data, and the max movement speed of the targeted object.
+This allows for both online and offline tracking.
+Online being live querying of the currently available data to see the location of the object, and offline being a later analysis of the recorded data, if you e.g. want to track the movement pattern of one or more persons. 
+To perform online or offline tracking three elements are needed: A Deployment Graph, processed sensor data, and the max movement speed of the targeted object.
 We now explore these three elements.
 This section is largely based on~\cite{Jensen:2009:GMB:1590953.1591000}.
 
@@ -18,9 +18,9 @@ This section is largely based on~\cite{Jensen:2009:GMB:1590953.1591000}.
 
 \subsection{Connectivity, Accessibility, \& Deployment Graphs}
 There are three graphs that describes the the topology of a floor plan. 
-The first is the \textit{Connectivity Graph} which describes how rooms, hallways, stairs etc. are connected to each other. 
+The first is the \textit{Connectivity Graph} which describes how rooms, hallways, stairs etc. (cells) are connected to each other. 
 The second is the \textit{Accessibility Graph} which takes the actual accessibility of a cell into account. 
-The third is the \textit{Deployment Graph} which contains the rooms and doorways that are equipped with scanners.
+The third is the \textit{Deployment Graph} which contains the cells and connections (e.g. doorways) that are equipped with scanners.
 
 
 \subsubsection{ \quad Connectivity Graph}
@@ -34,10 +34,10 @@ Both the Connectivity graph and the Accessibility Graph are constructed based on
 \end{figure}%
 
 Figure \ref{fig:floortplan} shows the floor plan, that is used in our examples.
-It contains 7 cells, labelled $R1 - R7$, one staircase labelled $S1$, a hallway and 12 doors labelled $d1-d12$. \\
+It contains 7 cells, labeled $R1 - R7$, one staircase labeled $S1$, a hallway and 12 doors labelled $d1-d12$. \\
 The area which a cell covers is denoted $A_{cell}$.
 
-In the Connectivity Graph, each separate partitioning of the floor plan (rooms, staircases, hallways etc.) are represented as vertexes, while the connection of these (doors, windows, hatches etc.) are represented as the edges.
+In the Connectivity Graph, each cell is represented as vertexes, while the connection of these (doors, windows, hatches etc.) are represented as the edges.
 E.g. if two rooms are connected by a door, each cell is represented in the base-graph as a vertex, while the door is represented as an undirected edge. 
 The Connectivity Graph representing the floor plan from Figure \ref{fig:floortplan} is shown in Figure \ref{fig:connectivitygraph}. 
 \begin{figure}[]%
@@ -46,8 +46,8 @@ The Connectivity Graph representing the floor plan from Figure \ref{fig:floortpl
 \caption{Connectivity Graph of the floor plan in Figure \ref{fig:floortplan}.}%
 \label{fig:connectivitygraph}%
 \end{figure}%
-Figure \ref{fig:connectivitygraph} shows how the rooms and hallways in Figure \ref{fig:floortplan} are connected by doors. 
-The Connectivity Graph itself is a labelled, undirected multi-graph that is defined by the following triple: \\
+Figure \ref{fig:connectivitygraph} shows how the cells in Figure \ref{fig:floortplan} are connected by doors. 
+The Connectivity Graph itself is a labeled, undirected multi-graph that is defined by the following triple: \\
 \begin{equation}
 G_{connection} = (V, E_d, \Sigma_{door})
 \end{equation}
