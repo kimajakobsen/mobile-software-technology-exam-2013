@@ -4,12 +4,12 @@
 We now explain what is meant by the maximum speed of an object.
 When an object is outside the range of any sensors it is said to be vacant.
 When an object is in a vacant time interval its position can be narrowed down to the cell it is located in, see Figure \ref{fig:vacant}. 
-Further its position can be narrowed down based on the maximum speed of the object and the time interval between leaving the range of the sensor and now, formally $A_{speed} V_{max}\cdot\Delta t_1$. 
-The speed of an object type may vary, e.g. a human have a maximum recorded speed of 37.58 km/h~\cite{bolt}.
+Further its position can be narrowed down based on the maximum speed of the object and the time interval between leaving the range of the sensor and now, formally $A_{speed}= V_{max}\cdot\Delta t_1$. 
+The speed of an object type may vary, e.g. a human have a maximum recorded speed of 37.58 km/h~\cite{bolt} (A lower maximum speed can be assumed in e.g. a mall).
 We view the range of the sensor $P_1$ as a circle with the sensors maximum range as radius, we denote this $R_1$, see Figure \ref{fig:speed1}.
 Knowing the maximum speed of the object a circle can be drawn from the point where the object left the vicinity of the sensor, see $R_4$.
 It is often not know at which point the object left the range of the sensor, but only when it left.
-Regardless of which point the object left the vicinity an maximum travelled range can be calculated. 
+Regardless of which point the object left the vicinity an maximum traveled range can be calculated. 
 By drawing a circle with the radius $R_5$ ($R_1 + R_4$) the maximum area which the object can have moved is found.  
 The next reading from a new sensor of the object can be used to create an oval between the two sensor readings, see Figure \ref{fig:speed2}.  
 The oval is bounded by the maximum speed of the object and the time between the two readings. 

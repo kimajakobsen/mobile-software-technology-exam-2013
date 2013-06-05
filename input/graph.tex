@@ -88,7 +88,7 @@ The Deployment Graph is an Accessibility graph where edges is doors with sensors
 %All RFID readers must have disjoint activations ranges, meaning that a tag cannot be read by more than one reader at the time. \\
 The actual deployment varies from case to case. 
 There are two kind of readers. 
-Partitioning readers and Presence readers. \\
+Partitioning readers and presence readers. \\
 
 The partitioning readers partition the indoor space into different cells. 
 An object cannot move from one cell to another without being read by a sensor. 
@@ -102,11 +102,11 @@ They simply observe which objects are present within its range.
 %These recordings will also have an entry- and an exit time of when the any given object enters or exists the readers range. \\
 
 A deployment graph should be complete, meaning that it should capture all present cells and connections between them, and it should have as few vertices and edges as possible. \\
-An RFID deployment graph is represented as a directed, labelled graph:
+An RFID deployment graph is represented as a directed, labeled graph:
 \begin{equation}
 G_{RFID} = (C, E_r, \Sigma_{reader}, l_e)
 \end{equation} 
-where $C$ is the set of vertixes, $E_r$ is the set of edges (an edge is an ordered pair $\langle c_i, c_j \rangle$ of distinct vertexes from $C$) and $l_e : E_r \rightarrow 2^{\Sigma_{reader}} \cup 2^{\Sigma_{reader} X \Sigma_{reader}}$ maps an edge to a partitioning reader or a partitioning reader pair. \\
+where $C$ is the set of vertices, $E_r$ is the set of edges (an edge is an ordered pair $\langle c_i, c_j \rangle$ of distinct vertexes from $C$) and $l_e : E_r \rightarrow 2^{\Sigma_{reader}} \cup 2^{\Sigma_{reader} X \Sigma_{reader}}$ maps an edge to a partitioning reader or a partitioning reader pair. \\
 
 The Deployment Graph is a map of how readers are located in an indoor area. 
 
