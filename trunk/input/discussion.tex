@@ -22,7 +22,7 @@ The computation can be moved to either the device or a server, but the server is
 Using hybrid techniques reduces the search space of fingerprinting and thereby the required computation. \\
 
 The low proximity techniques have low computational power as it only requires a lookup in a hashmap, or similar, to get the position of the device that the user has passed. 
-If it is combined with the Max Speed limitation, the computation is slightly larger as we must compute the position based on a velocity vector. 
+If it is combined with the Max Speed limitation (see section~\ref{sec:speed}, the computation is slightly larger as we must compute the position based on a velocity vector. 
 The computation is likely to be placed on the server. 
 If it relies on dumb tags, the device must report which tag it has seen to the server in order to get its position. 
 Low proximity techniques also requires a map of the building.\\
@@ -31,4 +31,4 @@ Based on the available technologies of today and not least the currently availab
 We believe that model-based is the best technique to get the most precise data, but the infrastructure that is required to use this technique needs to be implemented and is a huge task, as it requires a lot of sensors to be installed. 
 Fingerprinting is easier to implement as the infrastructure using Wi-Fi signals exists, but research shows this is not precise and requires more computational power to use. 
 We therefore believe that none of these are a general right choice, but the individual use case determines which applies the best.
-Hybrid technologies are most likely the best option but it is not a developed as the two pure technologies. 
+% Hybrid technologies are most likely the best option but it is not as developed as the two pure technologies. 
